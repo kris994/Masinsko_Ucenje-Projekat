@@ -12,6 +12,10 @@ from sympy.parsing.sympy_parser import *
 import sympy
 import os
 
+
+############################### PRIPREMA PODATAKA ###############################
+
+
 #ucitava test podatke iz mnist.pkl dataseta
 def loadData():
     f=gzip.open("data\mnist.pkl.gz","rb")
@@ -19,7 +23,7 @@ def loadData():
     f.close
     return (trainingData,validationData,testData)
 
-#wrapper za uzitavanje mnist.pkl dataseta
+#wrapper za ucitavanje mnist.pkl dataseta, sa razdvajanjem x i y koordinata
 def loadDataWrapper():
     trainingData, validationData, testData = loadData()
     training_inputs = [np.reshape(x, (784, 1)) for x in trainingData[0]]
